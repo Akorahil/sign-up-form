@@ -1,0 +1,195 @@
+:root {
+    --dark-gray: rgb(5, 5, 5);
+    --light-gray: rgb(231, 228, 228);
+    --linkBlue: rgb(16, 86, 177);
+    --lightBlue: rgb(16, 54, 177);
+    --input-gray: rgb(11, 11, 11);
+    --pink: rgb(138, 36, 107);
+}
+
+@font-face {
+    font-family: 'DalekPinpointBold';
+    src: url(../odin-fonts/dalek_pinpoint/DalekPinpointBold.ttf);
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    font-family: Helvetica, sans-serif;
+    color: var(--light-gray);
+    font-weight: lighter;
+}
+
+em {
+    color: var(--pink);
+    font-style: italic;
+}
+
+a {
+    color: var(--lightBlue);
+}
+
+a:hover {
+    color: var(--linkBlue);
+    cursor: pointer;
+}
+
+button {
+    border: 2px solid var(--lightBlue);
+    background-color: black;
+    color: var(--lightBlue);
+    font-size: .8rem;
+    border-radius: 5px;
+    padding-block: 10px;
+    width: 200px;
+}
+
+button:hover {
+    background-color: var(--dark-gray);
+    border: 2px solid var(--pink);
+    box-shadow: 2px 2px 5px var(--lightBlue);
+    cursor: pointer;
+}
+
+label {
+    letter-spacing: .1rem;
+    font-size: .5rem;
+    margin-bottom: 3px;
+}
+
+input {
+    border-radius: 3px;
+    border: 1px solid var(--lightBlue);
+    background-color: var(--input-gray);
+    color: lightgray;
+    padding: 5px;
+    width: 80%;
+    margin-bottom: 3px;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid var(--pink);
+    box-shadow: 2px 2px 5px var(--lightBlue);
+}
+
+.error, .data-error {
+    font-size: .5rem;
+    color: red;
+}
+
+.data-error {
+    margin-bottom: 9px;    
+}
+/* Grid and wrapper */
+
+.wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "sidebar grid-header grid-header"
+    "sidebar signup-form signup-form"
+    "sidebar grid-footer grid-footer";
+
+    box-sizing: border-box;
+    background-image: url("../images/sign-up-bg.jpg");
+    background-size: auto 100%;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    padding-top: 200px   
+}
+
+.grid-footer, .grid-header {
+    background-color: black;
+}
+
+.grid-header {
+    grid-area: grid-header;
+    justify-content: flex-end; 
+}
+
+.signup-form {
+    grid-area: signup-form;
+    background-color: rgb(5, 5, 5);   
+}
+
+.grid-footer {
+    grid-area: grid-footer;
+    font-size: .8rem; 
+    box-shadow: inset 0px 7px 10px -3px var(--input-gray);   
+}
+
+.grid-footer, .signup-form, .grid-header {
+    padding: 40px;
+    padding-right: 20%;    
+}
+
+.grid-element {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+.grid-form {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.op-six {
+    opacity: .6;
+    background-color: var(--dark-gray);
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    font-family: DalekPinpointBold;
+}
+
+@media (max-width: 800px) {
+    .wrapper {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "sidebar" 
+        "grid-header"
+        "signup-form"
+        "grid-footer";
+    
+        box-sizing: border-box;
+        background-image: url("../images/sign-up-bg.jpg");
+    } 
+    .grid-footer, .signup-form, .grid-header {
+        padding: 25px; 
+        text-align: center;           
+    }
+    
+    .grid-form {
+        display: grid;
+        height: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    } 
+    
+    .sidebar {
+        padding: 0;
+        justify-content: center;
+        align-items: center;    
+    } 
+
+    button {
+        align-self: center;
+    }
+
+}
